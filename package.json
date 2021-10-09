@@ -1,0 +1,20 @@
+{
+  "name": "test-node-publish-deprecate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venkatesh-devale/test-node-publish-deprecate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/venkatesh-devale/test-node-publish-deprecate/issues"
+  },
+  "homepage": "https://github.com/venkatesh-devale/test-node-publish-deprecate#readme"
+}
