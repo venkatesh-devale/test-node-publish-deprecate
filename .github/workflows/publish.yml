@@ -16,3 +16,6 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: script/deprecate.js
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
