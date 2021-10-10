@@ -5,7 +5,7 @@ const exec = require('child_process').execSync;
 
 try {
   const supportedVersions = new Set();
-  const versions = exec('npm view test-node-publish-deprecate-sample versions --json').toString();
+  const versions = exec('npm view test-node-publish-deprecate-sample versions --json');
   versionsArray = Object.values(JSON.parse(versions));
   const latest = versionsArray[versionsArray.length-1];
   supportedVersions.add(latest);
@@ -17,9 +17,9 @@ try {
   const indexOfLatestVersionOfLastMajorVersion = versionsArray.indexOf(`${currentMajorVersion}.0.0`)-1;
   const latestVersionOfLastMajorVersion = versionsArray[indexOfLatestVersionOfLastMajorVersion];
   supportedVersions.add(latestVersionOfLastMajorVersion);
-  console.log(supportedVersions);
+  console.log('Supported versions:', supportedVersions);
   const versionsToDeprecate = versionsArray.filter((version) => !supportedVersions.has(version));
-  console.log(`Deprecating versions: ${JSON.stringify(versionsToDeprecate)}`);
+  console.log('Versions to deprecate:', versionsToDeprecate);
 
   for (const version of versionsToDeprecate) {
     try {
@@ -29,5 +29,5 @@ try {
     }
   }
 } catch (error) {
-  console.log(`Error deprecating versions: ${JSON.stringify()}, error:`, error);
+  console.log(`Error deprecating versions, error:`, error);
 }
