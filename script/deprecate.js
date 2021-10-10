@@ -22,7 +22,11 @@ try {
   console.log(`Deprecating versions: ${JSON.stringify(versionsToDeprecate)}`);
 
   for (const version of versionsToDeprecate) {
-    exec(`npm deprecate test-node-publish-deprecate-sample@${version} "Deprecating in favor of newer versions"`);
+    try {
+      exec(`npm deprecate test-node-publish-deprecate-sample@${version} "Deprecating in favor of newer versions"`);
+    } catch (error) {
+      console.log(`Error deprecating ${version}, looks like already deprecated`);
+    }
   }
 } catch (error) {
   console.log(`Error deprecating versions: ${JSON.stringify()}, error:`, error);
